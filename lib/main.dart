@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'core/app_theme.dart';
 import 'core/shared_text_provider.dart';
+import 'core/widgets/floating_nav_bar.dart';
 import 'features/link_check/presentation/link_check_screen.dart';
 import 'features/message_scan/presentation/message_check_screen.dart';
 
@@ -16,7 +18,11 @@ class ScamShieldApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Scam Shield',
-      theme: ThemeData(colorSchemeSeed: Colors.indigo, useMaterial3: true),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
+      scrollBehavior: const _BounceScrollBehavior(),
       home: const HomeShell(),
     );
   }
@@ -58,15 +64,37 @@ class _HomeShellState extends ConsumerState<HomeShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: IndexedStack(index: _index, children: _screens),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.link), label: 'Link'),
-          NavigationDestination(icon: Icon(Icons.sms_outlined), label: 'Message'),
+      bottomNavigationBar: FloatingNavBar(
+        currentIndex: _index,
+        onChanged: (i) => setState(() => _index = i),
+        items: const [
+          NavItem(
+            icon: Icons.link_rounded,
+            activeIcon: Icons.link_rounded,
+            label: 'Link',
+          ),
+          NavItem(
+            icon: Icons.chat_bubble_outline_rounded,
+            activeIcon: Icons.chat_bubble_rounded,
+            label: 'Message',
+          ),
         ],
       ),
     );
   }
+}
+
+class _BounceScrollBehavior extends MaterialScrollBehavior {
+  const _BounceScrollBehavior();
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) =>
+      const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics());
+
+  @override
+  Widget buildOverscrollIndicator(
+      BuildContext context, Widget child, ScrollableDetails details) =>
+      child;
 }
