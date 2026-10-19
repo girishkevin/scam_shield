@@ -9,6 +9,7 @@ import '../../../core/widgets/score_ring.dart';
 import '../../../core/widgets/soft_card.dart';
 import '../../link_check/domain/link_analyzer.dart';
 import '../domain/qr_analyzer.dart';
+import '../../history/presentation/history_provider.dart';
 
 final qrAnalyzerProvider = Provider<QrAnalyzer>((ref) => QrAnalyzer());
 
@@ -97,6 +98,7 @@ class _QrScanScreenState extends ConsumerState<QrScanScreen>
     if (raw == null || raw.trim().isEmpty) return;
 
     final result = ref.read(qrAnalyzerProvider).analyze(raw);
+    unawaited(ref.read(historyProvider.notifier).addQr(result));
     _stopCamera();
 
     if (result.level == RiskLevel.dangerous) {

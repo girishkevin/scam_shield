@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/app_theme.dart';
 import 'core/shared_text_provider.dart';
 import 'core/widgets/floating_nav_bar.dart';
+import 'features/history/presentation/history_lock.dart';
+import 'features/history/presentation/history_screen.dart';
 import 'features/link_check/presentation/link_check_screen.dart';
 import 'features/message_scan/presentation/message_check_screen.dart';
 import 'features/qr_scan/presentation/qr_scan_screen.dart';
@@ -36,13 +38,16 @@ class HomeShell extends ConsumerStatefulWidget {
   ConsumerState<HomeShell> createState() => _HomeShellState();
 }
 
-class _HomeShellState extends ConsumerState<HomeShell> {
+class _HomeShellState extends ConsumerState<HomeShell>
+    with WidgetsBindingObserver {
   static const _channel = MethodChannel('scam_shield/share');
+  static const _historyTab = 3;
   int _index = 0;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _channel.setMethodCallHandler((call) async {
       if (call.method == 'onSharedText') {
         _handleShared(call.arguments as String?);
@@ -51,10 +56,33 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     _channel.invokeMethod<String>('getInitialText').then(_handleShared);
   }
 
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    final lock = ref.read(historyLockProvider.notifier);
+    if (state == AppLifecycleState.paused) {
+      lock.lock();
+    } else if (state == AppLifecycleState.resumed && _index == _historyTab) {
+      lock.unlock();
+    }
+  }
+
   void _handleShared(String? text) {
     if (!mounted || text == null || text.trim().isEmpty) return;
     setState(() => _index = 1); // jump to the Message tab
     ref.read(sharedTextProvider.notifier).set(text);
+  }
+
+  void _select(int i) {
+    setState(() => _index = i);
+    if (i == _historyTab) {
+      ref.read(historyLockProvider.notifier).unlock();
+    }
   }
 
   @override
@@ -67,11 +95,12 @@ class _HomeShellState extends ConsumerState<HomeShell> {
           const LinkCheckScreen(),
           const MessageCheckScreen(),
           QrScanScreen(active: _index == 2),
+          const HistoryScreen(),
         ],
       ),
       bottomNavigationBar: FloatingNavBar(
         currentIndex: _index,
-        onChanged: (i) => setState(() => _index = i),
+        onChanged: _select,
         items: const [
           NavItem(
             icon: Icons.link_rounded,
@@ -87,6 +116,11 @@ class _HomeShellState extends ConsumerState<HomeShell> {
             icon: Icons.qr_code_scanner_rounded,
             activeIcon: Icons.qr_code_scanner_rounded,
             label: 'Scan',
+          ),
+          NavItem(
+            icon: Icons.history_rounded,
+            activeIcon: Icons.history_rounded,
+            label: 'History',
           ),
         ],
       ),

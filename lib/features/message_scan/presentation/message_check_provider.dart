@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../history/presentation/history_provider.dart';
 import '../domain/message_analyzer.dart';
 
 final messageAnalyzerProvider =
@@ -9,7 +11,9 @@ class MessageCheckNotifier extends Notifier<MessageAnalysisResult?> {
   MessageAnalysisResult? build() => null;
 
   void check(String message) {
-    state = ref.read(messageAnalyzerProvider).analyze(message);
+    final result = ref.read(messageAnalyzerProvider).analyze(message);
+    state = result;
+    unawaited(ref.read(historyProvider.notifier).addMessage(result));
   }
 
   void clear() => state = null;
