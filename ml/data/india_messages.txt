@@ -1,0 +1,95 @@
+# Format: label|message   (label is "scam" or "legit"). Lines starting with # are ignored.
+# Do NOT paste real people's private messages here. Write your own examples or use public scam advisories.
+
+# ---------- SCAM examples ----------
+scam|Dear customer, your SBI account will be blocked today. Update KYC now: http://sbi-kyc-update.xyz/login
+scam|Your HDFC Bank KYC has expired. Click http://hdfc-verify-kyc.top to update within 24 hours or your account will be suspended.
+scam|Congratulations! You have won Rs 25,00,000 in the KBC lucky draw. Call now to claim your prize. Registration fee Rs 5000 required.
+scam|URGENT: Your electricity connection will be disconnected tonight at 9:30 pm. Call 98XXXXXXXX immediately to update your bill.
+scam|Your Paytm KYC is pending. Share your OTP with our executive to avoid wallet block.
+scam|Dear user your PAN card is blocked. Update now at bit.ly/pan-update-now to avoid penalty.
+scam|You have received a refund of Rs 4,850 from Income Tax Department. Claim here: http://incometax-refund-claim.click
+scam|This is Mumbai Police. A parcel in your name contains illegal items. Join the video call immediately or you will be arrested.
+scam|CBI Notice: Your Aadhaar is linked to money laundering. Do not disconnect this call. Transfer funds to verify your innocence.
+scam|Work from home! Earn Rs 5000 daily by liking YouTube videos. Join our Telegram group now. Registration fee Rs 500.
+scam|Your Amazon order is on hold. Pay Rs 49 customs charge at http://amzn-delivery-pay.xyz to release your parcel.
+scam|India Post: Your package could not be delivered due to incorrect address. Update details at http://indiapost-redelivery.top within 12 hours.
+scam|Dear customer your SIM will be deactivated in 2 hours. Complete KYC at http://airtel-sim-kyc.link or call 9XXXXXXXXX.
+scam|Install AnyDesk and share the 9 digit code so we can fix your account issue and process your refund.
+scam|Download our app from http://bank-secure-app.xyz/update.apk to continue using net banking. Your account will be frozen otherwise.
+scam|Your UPI ID has been selected for a cashback of Rs 2000. Scan this QR code and enter your PIN to receive money.
+scam|Aapka account band ho jayega. Turant KYC update karein: http://sbi-kyc-help.xyz
+scam|Aapka bijli ka connection aaj raat kaat diya jayega. Abhi is number par call karein aur bill update karein.
+scam|Aapne lucky draw jeeta hai! Rs 10 lakh ka inam paane ke liye turant sampark karein aur registration fee jama karein.
+scam|Dear customer, Rs 9,999 debited from your account for iPhone purchase. If not you, call 1800XXXXXXX immediately to cancel.
+scam|Your credit card reward points worth Rs 8,500 will expire today. Redeem now http://icici-rewards-claim.top
+scam|Final notice: Your driving licence will be cancelled. Pay the pending challan of Rs 500 at http://echallan-pay.xyz now.
+scam|Hi, I am from HR. We have a part time job for you. Earn Rs 3000 per day. Task based. Message me on WhatsApp now.
+scam|Your Netflix account is suspended. Update payment details at http://netflix-billing-update.click to continue watching.
+scam|Dear sir, your loan of Rs 2,00,000 is pre-approved. Pay processing fee Rs 3000 now to receive the amount in 10 minutes.
+scam|Your bank account has been compromised. Share your debit card number, CVV and OTP to secure it now.
+scam|You are eligible for Rs 15000 government subsidy under PM scheme. Apply at http://pm-subsidy-apply.xyz and pay Rs 200 fee.
+scam|Last chance! Your Aadhaar will be deactivated. Verify immediately at http://uidai-verify-now.top
+scam|Congratulations, you are selected for free iPhone 15. Click the link and pay Rs 99 shipping to claim your gift now.
+scam|Your FASTag is blocked. Recharge now via http://fastag-update.link to avoid fine at toll plaza.
+scam|Your gas connection will be cancelled. Call our officer at 8XXXXXXXXX and share the OTP sent to your phone to continue.
+scam|Dear customer, your electricity bill is unpaid. Power will be cut tonight. Pay now using this link http://tneb-bill-pay.xyz
+scam|Win Rs 50 lakh in Jio lucky draw! Send your name and bank details to claim the prize now.
+scam|Your Google Pay account is limited. Verify identity by entering your UPI PIN at http://gpay-verify.click
+scam|I am sending you money by mistake please return Rs 5000 to my number urgently, my son is in hospital.
+scam|Courier from Mumbai customs has been seized with 5 passports and drugs in your name. Press 1 to speak to the officer to avoid arrest.
+scam|Investment alert: Double your money in 7 days with our trading group. Guaranteed 100 percent returns. Join now on Telegram.
+scam|You have 1 pending income tax refund of Rs 15,230. Confirm your bank account at http://it-refund-india.top within 2 hours.
+scam|Dear Customer, your Axis Bank NetBanking is locked. Reactivate immediately: bit.ly/axis-unlock
+scam|Your voter ID card is expired. Update by clicking http://voter-id-update.xyz and pay Rs 20 fee.
+scam|Please verify your Facebook account within 24 hours or it will be permanently disabled. Click http://fb-verify-account.click
+scam|Amazon gift voucher worth Rs 5000 is waiting for you. Claim before it expires today: http://amazon-gift-claim.top
+
+# ---------- LEGIT examples ----------
+legit|123456 is your OTP for login to your bank account. Do not share it with anyone. Valid for 10 minutes.
+legit|Your OTP for UPI transaction of Rs 500.00 to Ramesh Kumar is 482913. Never share this OTP with anyone, including bank staff.
+legit|Rs 1,250.00 debited from A/c XX4821 on 12-10-26 via UPI to swiggy@icici. Avl Bal Rs 18,430.55. If not you, call your bank helpline.
+legit|Rs 45,000.00 credited to your A/c XX4821 on 01-10-26 by NEFT from your employer. Avl Bal Rs 63,430.55.
+legit|Dear customer, your credit card statement for September is generated. Total amount due Rs 3,420.00, minimum due Rs 340.00, due date 18-10-26.
+legit|Your Amazon order for headphones has been shipped and will be delivered by Thursday. Track it in the Amazon app.
+legit|Your Swiggy order is out for delivery. Your delivery partner Arun will reach you in 10 minutes.
+legit|Your Zomato order has been delivered. Rate your experience in the app. Thank you for ordering.
+legit|Recharge of Rs 299 is successful on your Jio number. Validity 28 days with 1.5 GB per day. Thank you for choosing Jio.
+legit|Your Airtel postpaid bill of Rs 499 for this month has been generated. Pay by 20th via the Airtel Thanks app.
+legit|Reminder: your appointment with Dr. Meena is tomorrow at 10:30 AM at Sri Lakshmi Clinic. Reply YES to confirm.
+legit|Your train ticket PNR 4521896304 is confirmed. Coach S4, seat 32. Have a safe journey. IRCTC.
+legit|Your flight 6E 214 departs tomorrow at 7:45 AM from Terminal 2. Web check-in is now open. IndiGo.
+legit|Your electricity bill of Rs 842 for September has been paid successfully. Thank you for using the official TNEB portal.
+legit|Hi, are we still meeting for lunch tomorrow? Let me know the time and I will book a table.
+legit|Happy birthday! Wishing you a great year ahead. Let us catch up this weekend.
+legit|Can you send me the notes from yesterday's class? I missed the second lecture.
+legit|Please find the assignment deadline extended to Friday. Submit it on the college portal before 5 pm.
+legit|Mom, I reached home safely. Will call you after dinner.
+legit|Your library book Data Structures is due on 20th October. Please return or renew it to avoid a late fee.
+legit|Your package from Flipkart has been delivered to the security desk. Please collect it from the front gate.
+legit|Welcome to Starbucks Rewards! You earned 50 stars on your last purchase. Check the app for offers.
+legit|Your LPG cylinder booking is confirmed. Delivery expected within 2 days. Booking number 7391.
+legit|Dear student, your semester exam hall ticket is available on the university website. Download it from your login.
+legit|Your SIP of Rs 5,000 in the index fund was processed successfully on 05-10-26. Units allotted 123.4560.
+legit|Your debit card ending 7712 was used for Rs 2,300.00 at a fuel station. Not you? Call the number on the back of your card.
+legit|Team meeting rescheduled to 3 pm today in conference room B. Please join on time.
+legit|Your Ola ride is confirmed. Driver Suresh is arriving in a white Swift, vehicle ending 4455, in 3 minutes.
+legit|Thanks for visiting our store. Your bill of Rs 1,180 is paid. We hope to see you again.
+legit|Your health insurance premium of Rs 12,400 is due on 28th October. Pay through the official app or website.
+legit|Your Aadhaar address update request has been received. Check the status on the official UIDAI website.
+legit|Reminder from the municipal office: property tax for this year can be paid online or at the ward office by 31st March.
+legit|Your OTP for password reset is 903421. It is valid for 5 minutes. If you did not request this, ignore this message.
+legit|Booking confirmed at Hotel Sunrise for 2 nights from 24 October. Check-in after 12 noon. Show this message at the desk.
+legit|Dinner is ready, come down when you are free. We made your favourite rice and sambar.
+legit|Your Google verification code is 584 217. Do not share it with anyone.
+legit|Dear customer, your account statement for October is now available in net banking. Login with your own credentials to download it.
+legit|Your mobile number has been successfully ported to the new operator. Welcome aboard. Your plan details are in the app.
+legit|The cricket match starts at 7 pm. Bring the jersey and the water bottles, I will take the bat.
+legit|Your electricity meter reading for this cycle was recorded. Units consumed 212. Pay bill using the official app.
+legit|Your PF withdrawal claim has been processed. Amount credited to your bank account within 3 working days.
+legit|Your order from Myntra is confirmed. Estimated delivery 22 October. Easy returns for 14 days.
+legit|Your ward's school fee receipt for Term 2 has been generated and is available at the school office.
+legit|Aaj raat ka khana tayyar hai, aap kab tak aa rahe ho? Mummy ne poocha hai.
+legit|Kal subah meeting 10 baje hai, please time par aana. Presentation bhi ready rakhna.
+legit|Aapka order deliver ho gaya hai. Dhanyavaad. Apna feedback app mein zaroor dein.
+legit|Your OTP is 7731. Use it to verify your mobile number. Never share your OTP with anyone.
