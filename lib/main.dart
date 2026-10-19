@@ -9,6 +9,7 @@ import 'features/history/presentation/history_screen.dart';
 import 'features/link_check/presentation/link_check_screen.dart';
 import 'features/message_scan/presentation/message_check_screen.dart';
 import 'features/qr_scan/presentation/qr_scan_screen.dart';
+import 'features/message_scan/presentation/message_check_provider.dart';
 
 void main() {
   runApp(const ProviderScope(child: ScamShieldApp()));
@@ -47,6 +48,7 @@ class _HomeShellState extends ConsumerState<HomeShell>
   @override
   void initState() {
     super.initState();
+    ref.read(scamClassifierProvider); // start loading the model
     WidgetsBinding.instance.addObserver(this);
     _channel.setMethodCallHandler((call) async {
       if (call.method == 'onSharedText') {

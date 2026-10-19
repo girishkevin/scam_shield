@@ -10,8 +10,11 @@ import '../../../core/widgets/soft_card.dart';
 import '../../link_check/domain/link_analyzer.dart';
 import '../domain/qr_analyzer.dart';
 import '../../history/presentation/history_provider.dart';
+import '../../message_scan/presentation/message_check_provider.dart';
 
-final qrAnalyzerProvider = Provider<QrAnalyzer>((ref) => QrAnalyzer());
+final qrAnalyzerProvider = Provider<QrAnalyzer>(
+      (ref) => QrAnalyzer(messageAnalyzer: ref.watch(messageAnalyzerProvider)),
+);
 
 class QrScanScreen extends ConsumerStatefulWidget {
   const QrScanScreen({super.key, required this.active});

@@ -1,4 +1,5 @@
 import '../../link_check/domain/link_analyzer.dart';
+import 'scam_classifier.dart';
 
 class MessageAnalysisResult {
   final String message;
@@ -29,10 +30,12 @@ class _TextRule {
 }
 
 class MessageAnalyzer {
-  MessageAnalyzer({LinkAnalyzer? linkAnalyzer})
-      : _linkAnalyzer = linkAnalyzer ?? LinkAnalyzer();
+  MessageAnalyzer({LinkAnalyzer? linkAnalyzer, ScamClassifier? classifier})
+      : _linkAnalyzer = linkAnalyzer ?? LinkAnalyzer(),
+        _classifier = classifier;
 
   final LinkAnalyzer _linkAnalyzer;
+  final ScamClassifier? _classifier;
 
   // The (?<!...) parts avoid flagging genuine warnings like "Do not share OTP".
   static final List<_TextRule> _rules = [
@@ -128,6 +131,26 @@ class MessageAnalyzer {
         if (rule.pattern.hasMatch(text))
           RiskSignal(rule.id, rule.reason, rule.weight),
     ];
+
+    // The trained model can only ADD suspicion, never remove it.
+    final ml = _classifier?.predict(text);
+    if (ml != null) {
+      final pct = (ml.probability * 100).round();
+      final words = ml.topTerms.map((t) => '"$t"').join(', ');
+      final hint = words.isEmpty ? '' : ' Key words: $words.';
+
+      if (ml.probability >= 0.92) {
+        textSignals.add(RiskSignal(
+            'ml_high',
+            'Our on-device model rates this $pct% likely to be a scam.$hint',
+            30));
+      } else if (ml.probability >= 0.75) {
+        textSignals.add(RiskSignal(
+            'ml_medium',
+            'Our on-device model rates this $pct% likely to be a scam.$hint',
+            15));
+      }
+    }
 
     final linkResults = extractLinks(text).map(_linkAnalyzer.analyze).toList();
 
