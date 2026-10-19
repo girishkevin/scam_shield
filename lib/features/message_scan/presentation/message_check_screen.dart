@@ -5,6 +5,7 @@ import '../../../core/risk_style.dart';
 import '../../link_check/domain/link_analyzer.dart';
 import '../domain/message_analyzer.dart';
 import 'message_check_provider.dart';
+import '../../../core/shared_text_provider.dart';
 
 class MessageCheckScreen extends ConsumerStatefulWidget {
   const MessageCheckScreen({super.key});
@@ -42,6 +43,12 @@ class _MessageCheckScreenState extends ConsumerState<MessageCheckScreen> {
   @override
   Widget build(BuildContext context) {
     final result = ref.watch(messageCheckProvider);
+    ref.listen<String?>(sharedTextProvider, (previous, next) {
+      if (next == null) return;
+      _controller.text = next;
+      ref.read(messageCheckProvider.notifier).check(next);
+      ref.read(sharedTextProvider.notifier).clear();
+    });
 
     return Scaffold(
       appBar: AppBar(title: const Text('Check a message')),

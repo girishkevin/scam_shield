@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'core/shared_text_provider.dart';
 import 'features/link_check/presentation/link_check_screen.dart';
 import 'features/message_scan/presentation/message_check_screen.dart';
 
@@ -20,20 +22,38 @@ class ScamShieldApp extends StatelessWidget {
   }
 }
 
-class HomeShell extends StatefulWidget {
+class HomeShell extends ConsumerStatefulWidget {
   const HomeShell({super.key});
 
   @override
-  State<HomeShell> createState() => _HomeShellState();
+  ConsumerState<HomeShell> createState() => _HomeShellState();
 }
 
-class _HomeShellState extends State<HomeShell> {
+class _HomeShellState extends ConsumerState<HomeShell> {
+  static const _channel = MethodChannel('scam_shield/share');
   int _index = 0;
 
   static const _screens = [
     LinkCheckScreen(),
     MessageCheckScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _channel.setMethodCallHandler((call) async {
+      if (call.method == 'onSharedText') {
+        _handleShared(call.arguments as String?);
+      }
+    });
+    _channel.invokeMethod<String>('getInitialText').then(_handleShared);
+  }
+
+  void _handleShared(String? text) {
+    if (!mounted || text == null || text.trim().isEmpty) return;
+    setState(() => _index = 1); // jump to the Message tab
+    ref.read(sharedTextProvider.notifier).set(text);
+  }
 
   @override
   Widget build(BuildContext context) {
