@@ -6,6 +6,7 @@ import 'core/shared_text_provider.dart';
 import 'core/widgets/floating_nav_bar.dart';
 import 'features/link_check/presentation/link_check_screen.dart';
 import 'features/message_scan/presentation/message_check_screen.dart';
+import 'features/qr_scan/presentation/qr_scan_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: ScamShieldApp()));
@@ -39,11 +40,6 @@ class _HomeShellState extends ConsumerState<HomeShell> {
   static const _channel = MethodChannel('scam_shield/share');
   int _index = 0;
 
-  static const _screens = [
-    LinkCheckScreen(),
-    MessageCheckScreen(),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -65,7 +61,14 @@ class _HomeShellState extends ConsumerState<HomeShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: IndexedStack(index: _index, children: _screens),
+      body: IndexedStack(
+        index: _index,
+        children: [
+          const LinkCheckScreen(),
+          const MessageCheckScreen(),
+          QrScanScreen(active: _index == 2),
+        ],
+      ),
       bottomNavigationBar: FloatingNavBar(
         currentIndex: _index,
         onChanged: (i) => setState(() => _index = i),
@@ -79,6 +82,11 @@ class _HomeShellState extends ConsumerState<HomeShell> {
             icon: Icons.chat_bubble_outline_rounded,
             activeIcon: Icons.chat_bubble_rounded,
             label: 'Message',
+          ),
+          NavItem(
+            icon: Icons.qr_code_scanner_rounded,
+            activeIcon: Icons.qr_code_scanner_rounded,
+            label: 'Scan',
           ),
         ],
       ),
