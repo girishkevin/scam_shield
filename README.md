@@ -2,6 +2,8 @@
 
 An on-device scam and phishing detector for Android, built with Flutter. It checks **links, messages and QR codes** (including UPI payment codes) and explains *why* something looks risky, without sending anything off your phone.
 
+**[Download the latest APK](https://github.com/girishkevin/scam_shield/releases/latest)**
+
 <p align="center">
   <img src="docs/screenshots/01-link-dangerous.png" width="22%" alt="Link check showing a dangerous result" />
   <img src="docs/screenshots/02-message-ml.png" width="22%" alt="Message check with on-device model explanation" />
