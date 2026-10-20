@@ -111,7 +111,7 @@ class HistoryScreen extends ConsumerWidget {
             child: Center(child: CircularProgressIndicator()),
           ),
         ],
-        error: (_, __) => [
+        error: (_, _) => [
           Text('Could not open history.', style: theme.textTheme.bodyMedium),
         ],
         data: (entries) {

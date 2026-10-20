@@ -27,7 +27,7 @@ This document says what Scam Shield protects, from whom, and what it does not de
 | 4 | History is copied through cloud backup | Android backup is disabled for the app |
 | 5 | The history file is modified or corrupted | GCM authentication fails on any change. The app discards the file instead of trusting it, and never crashes on it |
 | 6 | A scam message or QR contains a malicious link | Content is treated as untrusted text. It is analyzed locally and never opened, executed or fetched |
-| 7 | Data leaves the device | The app's code makes no network requests, has no analytics and no accounts |
+| 7 | Data leaves the device | The release build declares no network permission (verified with `aapt2 dump permissions`), so the operating system blocks all network access. The app also has no analytics and no accounts |
 | 8 | The ML model gives false reassurance | The model can only add to the risk score. It can never lower a score that the rules produced |
 | 9 | A crash or a failed save loses or exposes data | Saves go through a temporary file and are then swapped in. Save failures are ignored without affecting a scan |
 

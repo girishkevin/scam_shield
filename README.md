@@ -55,7 +55,7 @@ State is managed with Riverpod. The analyzers are plain Dart classes with no Flu
 
 ## Privacy and security design
 
-- No accounts, no analytics, no servers. The app's own code makes no network requests.
+- No accounts, no analytics, no servers. The release build declares **no network permission**, so Android does not allow the app to go online at all. A library added `INTERNET` and `ACCESS_NETWORK_STATE`; the manifest removes them. You can check this yourself with `aapt2 dump permissions app-release.apk`.
 - History is encrypted with AES-256-GCM using a random key. GCM also detects tampering, and a corrupted file is discarded rather than trusted.
 - The key is kept in Android Keystore-backed secure storage, separate from the data file.
 - The History tab requires biometric or screen-lock authentication and locks again when the app goes to the background.

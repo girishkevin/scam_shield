@@ -82,10 +82,6 @@ class AppTheme {
       textTheme: text,
       splashFactory: NoSplash.splashFactory,
       highlightColor: Colors.transparent,
-      pageTransitionsTheme: const PageTransitionsTheme(builders: {
-        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      }),
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
